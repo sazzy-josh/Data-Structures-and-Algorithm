@@ -9,7 +9,7 @@ let word = 'cocococo'
 let rword = ''
 
 //stack is initially an  empty array
-let stack = []
+let stack: string[] = []
 
 //loop through and then push the each item into the stack 
 for(let i = 0 ; i < word.length ; i++){
@@ -31,7 +31,7 @@ if(word === rword){
 
 //?factorial
 
-function factorial(n){
+function factorial(n: number): void{
     let result = 1;
     for(let i = 2 ; i <= n ; i++){
        console.log(`${i}|| ${result} * ${i}`)  
@@ -44,7 +44,7 @@ function factorial(n){
 
 //?fibonacci sequence whereby the the value of n in an array is the sum of the last two values,say we have [0,1,1,2,3,5]
 
- function fibonacci(n){
+ function fibonacci(n: number){
     let arr = [ 0 , 1]
     for (let i = 2 ; i <= n ; i ++ ){
         arr[i] = arr[i-1] + arr[i-2] 
@@ -57,7 +57,7 @@ function factorial(n){
 //  fibonacci(8)
 
 //?Check if a number is a prime number(Prime numbers are natural numbers that are greater than 1 and not a products of two natural numbers)
-function checkPrime(n){
+function checkPrime(n: number){
     if(n < 2){
      console.log(`${n} - is not a prime number`)
     }
@@ -80,7 +80,7 @@ function checkPrime(n){
 //? Linear Search given a target t, find the index of t in the array and if not found return -1
 const arr = [2, 3 , 4, 0 , 1 ] //find index of 4
 
-function find(t){
+function find(t: number){
    for (let i = 0 ; i < arr.length ; i ++ ){
       if(arr[i] === t){
          console.log(`${t} is at index ${[i]}`)
@@ -105,7 +105,7 @@ while ( i < colors.length ) {
 let speed = 0
 
 while (speed <= 100){
-   // console.log(`the speed of the car is ${speed}MPH`)
+   console.log(`the speed of the car is ${speed}MPH`)
    speed +=10 
 }
 
@@ -113,7 +113,7 @@ let a = 1
 let b = 10
 
 do{
-   console.log(`${a}`)
+   // console.log(`${a}`)
    a++
 } while (a <= b) 
 
