@@ -1,37 +1,37 @@
 //!Stacks**
 
-//?Check if a word is a palindrome
+// //?Check if a word is a palindrome
 
-//word to check
-let word = 'cocococo'
+// //word to check
+// let word = 'cocococo'
 
 //reverse word to check if word is a palindrome
-let rword = ''
+// let rword = ''
 
 //stack is initially an  empty array
-let stack: string[] = []
+// let stack: string[]; 
 
 //loop through and then push the each item into the stack 
-for(let i = 0 ; i < word.length ; i++){
-    stack.push((word[i]))
-}
+// for(let i = 0 ; i < word.length ; i++){
+//     stack.push((word[i]))
+// }
 // console.log(stack)
 
-for(let i = 0 ; i < word.length ; i++){
+// for(let i = 0 ; i < word.length ; i++){
     
-    rword += stack.pop()
-  //  console.log(`${rword} -- ${stack}`)
-}
+//     rword += stack.pop()
+//    console.log(`${rword} -- ${stack}`)
+// }
 
-if(word === rword){
-   // console.log(`${word} is a palindrome`)
-}else{
-   // console.log(`${word} is not a palindrome`) 
-}
+// if(word === rword){
+//    console.log(`${word} is a palindrome`)
+// }else{
+//    console.log(`${word} is not a palindrome`) 
+// }
 
 //?factorial
 
-function factorial(n: number): void{
+function factorial(n){
     let result = 1;
     for(let i = 2 ; i <= n ; i++){
        console.log(`${i}|| ${result} * ${i}`)  
@@ -44,7 +44,7 @@ function factorial(n: number): void{
 
 //?fibonacci sequence whereby the the value of n in an array is the sum of the last two values,say we have [0,1,1,2,3,5]
 
- function fibonacci(n: number){
+ function fibonacci(n){
     let arr = [ 0 , 1]
     for (let i = 2 ; i <= n ; i ++ ){
         arr[i] = arr[i-1] + arr[i-2] 
@@ -57,7 +57,7 @@ function factorial(n: number): void{
 //  fibonacci(8)
 
 //?Check if a number is a prime number(Prime numbers are natural numbers that are greater than 1 and not a products of two natural numbers)
-function checkPrime(n: number){
+function checkPrime(n){
     if(n < 2){
      console.log(`${n} - is not a prime number`)
     }
@@ -80,7 +80,7 @@ function checkPrime(n: number){
 //? Linear Search given a target t, find the index of t in the array and if not found return -1
 const arr = [2, 3 , 4, 0 , 1 ] //find index of 4
 
-function find(t: number){
+function find(t){
    for (let i = 0 ; i < arr.length ; i ++ ){
       if(arr[i] === t){
          console.log(`${t} is at index ${[i]}`)
@@ -105,7 +105,7 @@ while ( i < colors.length ) {
 let speed = 0
 
 while (speed <= 100){
-   console.log(`the speed of the car is ${speed}MPH`)
+  // console.log(`the speed of the car is ${speed}MPH`)
    speed +=10 
 }
 
@@ -119,7 +119,7 @@ do{
 
 
 
-//?Binary Search -- only works on sorted array ,say we have an array [ -2 , 0 , 3, 4 , 8 , 24 , 30]
+//?Binary Search -- only works on sorted array ,say we have an array [ -2 , 0 , 3, 4 , 8 , 24 , 30], find the target t,where t is 4
 /**
  * Given a sorted aray,and we are to run a binary search for a target t
  * We simply find the middle index, by the dividing the length of array by 2
@@ -128,5 +128,57 @@ do{
  * else if the value of the target is greater than the middle index,we take the right half of the middle index
  * then we loop through the process until we get value t
  */
+
+ let array = [ -2 , 3 , 4 , 7, 10 , 40]
+
+
+ const BinarySearch = ( arr , target) =>  {
+       let leftindex = 0;
+       let rightIndex = arr.length - 1
+
+
+    while(leftindex <= rightIndex){   
+       let middleindex = Math.floor((leftindex + rightIndex )/ 2)
+       console.log(middleindex)
+       if(arr[middleindex] === target){
+          return middleindex
+       }
+       if(target < arr[middleindex]){
+           rightIndex = middleindex - 1 
+           console.log(` rightIndex = ${rightIndex} `)  
+         }else{
+            leftindex = middleindex + 1 
+            console.log(` leftIndex = ${leftindex} `)
+       }
+      }  console.log(`couldnt find the value ${target}`)
+        return  -1
+    }
+   
+
+//   console.log(BinarySearch([2, 3 ,4, 6, 8  , 10] , 14))
+
+
+/**
+ * Bubble sort, basically checks if an array is sorted in either ascending or descending order,say we have an array [ 3, 8, 6, 1 , 9 , -2]
+ * loop through the array and check if the adjacent value is greater than the present arr[i] value,if true, swap the adjacent value with the value of the arr[i]
+ */
+
+function BubbleSort(arr){
+   let swapped ;
+   do{
+      swapped = false
+      for( let i = 1 ; i <= arr.length ; i++ ){
+         if(arr[i] < arr[i-1]){
+            let temp = arr[i]
+            arr[i] = arr[i - 1]
+            arr[i -1] = temp
+            console.log(arr)
+            swapped = true
+         } 
+      }
+   } while(swapped)
+}
+
+console.log(BubbleSort([6 , -1 , 4 , 0 , 5 , 8 ]))
 
 
