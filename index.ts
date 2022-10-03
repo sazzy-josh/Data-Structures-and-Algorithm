@@ -163,6 +163,7 @@ do{
  * loop through the array and check if the adjacent value is greater than the present arr[i] value,if true, swap the adjacent value with the value of the arr[i]
  */
 
+//bubble sort comparing the previous values
 function BubbleSort(arr){
    let swapped ;
    do{
@@ -179,6 +180,60 @@ function BubbleSort(arr){
    } while(swapped)
 }
 
-console.log(BubbleSort([6 , -1 , 4 , 0 , 5 , 8 ]))
+// console.log(BubbleSort([6 , -1 , 4 , 0 , 5 , 8 ]))
 
 
+//Bubble Sort comparing the adjacent values , say we have an array [ 2 , 1 , 4 , 0 , -3 , 12 , 8 ]
+
+function BubbleSorting( arr ){
+   let swapped ; 
+   //run a do , while loops to run the array atleast once to see if it meets the condition ,whether it is sorted or not sorted
+   do{
+    let swapped = false;
+    for (let i = 0 ; i < arr.length - 1 ; i ++){
+      if(arr[i] > arr[i + 1]){
+        //create a temp variale to store value of arr[i]
+        let temp = arr[i]
+        arr[i + 1] = arr[i]
+        arr[i] = temp
+        //notify the while loop that the array was swapped by setting ther value of swapped to true.. 
+        swapped = true
+      }
+    }
+   } while(swapped)
+}
+
+//console.log(BubbleSort( [ 2, 0 , -4 , 6 , 2 , 7 ]))
+
+function test(arr){
+   for (let i = 0 ; i < arr.length - 1 ; i ++){
+      if(arr[i] > arr[i + 1]){
+        //create a temp variale to store value of arr[i]
+        let temp = arr[i]
+        arr[i] = arr[ i + 1]
+        arr[i + 1] = temp
+        console.log(arr)
+      } 
+   }
+}
+// console.log(test([2 , 15 , -1 , 9 , -4 , 0]))
+
+
+//reverse case for Bubble Sort, say we have an array [ 2, 3 , 0 , 5 ,-1], we expect an outout of [  ]
+
+function ReverseSorting(arr){
+   let swapped = false; 
+   do{
+      for ( let i = 0 ; i < arr.length ; i++ ){
+         if(arr[i] < arr[i + 1]){
+            let temp = arr[i]
+            arr[i] = arr[i + 1]
+            arr[i + 1] = temp
+            swapped = true
+            console.log(arr) 
+         }
+      } 
+   }while(swapped)
+}
+
+console.log(ReverseSorting( [2, 3 , 0 , 5 , -1]))
