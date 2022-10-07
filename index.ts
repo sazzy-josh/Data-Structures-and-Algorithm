@@ -2,7 +2,7 @@
 
 // //?Check if a word is a palindrome
 
-// //word to check
+//word to check
 // let word = 'cocococo'
 
 //reverse word to check if word is a palindrome
@@ -120,7 +120,7 @@ do{
 
 
 //?Binary Search -- only works on sorted array ,say we have an array [ -2 , 0 , 3, 4 , 8 , 24 , 30], find the target t,where t is 4
-/**
+/**Pseudocode
  * Given a sorted aray,and we are to run a binary search for a target t
  * We simply find the middle index, by the dividing the length of array by 2
  * check if the value of the target is the middle index,then we assign the value of the target to the middle index
@@ -128,9 +128,6 @@ do{
  * else if the value of the target is greater than the middle index,we take the right half of the middle index
  * then we loop through the process until we get value t
  */
-
- let array = [ -2 , 3 , 4 , 7, 10 , 40]
-
 
  const BinarySearch = ( arr , target) =>  {
        let leftindex = 0;
@@ -158,12 +155,13 @@ do{
 //   console.log(BinarySearch([2, 3 ,4, 6, 8  , 10] , 14))
 
 
-/**
+//? Bubble Sort -  Pseudocode 
+/**  
  * Bubble sort, basically checks if an array is sorted in either ascending or descending order,say we have an array [ 3, 8, 6, 1 , 9 , -2]
  * loop through the array and check if the adjacent value is greater than the present arr[i] value,if true, swap the adjacent value with the value of the arr[i]
  */
 
-//bubble sort comparing the previous values
+//Bubble sort approach comparing the previous values
 function BubbleSort(arr){
    let swapped ;
    do{
@@ -236,4 +234,47 @@ function ReverseSorting(arr){
    }while(swapped)
 }
 
-console.log(ReverseSorting( [2, 3 , 0 , 5 , -1]))
+
+// console.log(ReverseSorting( [2, 3 , 0 , 5 , -1]))
+
+           
+//? Insertion Sort- Pseudocode           
+/** say we have an array   [ -4 , 3,   1 , 13  , 8 , 2  ] and we expect our output to be [ -4 , 1 , 2 , 3 , 8, 13  ] ,create a function to sort the array using the insertion sort approach;
+ * First we split our array into two parts,sorted part and an unsorted part, we usually assume an array has atleast one sorted value,lets assume the first element of the array is usually the sorted element.
+ * so we pick an element in the unsorted part (NIS) and compare with the elements in the sorted (SE) part,
+ *check if the sorted array element[i] (SE) is greater than the selected unsorted element(NIS), if true , shift the value of sorted array element[i] to the right 
+ * else place the value of (NIS) unsorted array to the right of sorted element[i] .  
+ */
+
+// Say we have an array to sort with Insertion sort approach [-1 ,3 ,8 ,2 ,10 , 29]
+
+//First approach
+function insertionSort(arr){
+  for(let i = 1; i < arr.length ; i++){
+      let NIS = arr[i]
+      let j;
+      for(j = i - 1 ; j >= 0  && arr[j] > NIS; j--){
+         arr[j + 1] = arr[j]
+      }
+       arr[j + 1] = NIS
+   }
+  return arr
+}
+
+// console.log(insertionSort([ -4 ,8 ,6, 3 , 13 ,2 ]))
+
+//Second approach
+
+function InsertionSort2(nums){
+   for(let i = 1 ; i < nums.length ; i++){
+      let NIS = nums[i]
+      let j = i - 1
+      while(j >= 0 && nums[j] > NIS){
+         nums[j + 1] = nums[j]
+         j--
+      }
+      nums[j + 1] = NIS
+   }  return nums
+}
+
+console.log(InsertionSort2([-4 ,8 ,6, 3 , 13 ,2 ]))
