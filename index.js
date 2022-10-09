@@ -3,19 +3,19 @@
 // //?Check if a word is a palindrome
 
 //word to check
-// let word = 'cocococo'
+let word = 'cocococo'
 
 //reverse word to check if word is a palindrome
-// let rword = ''
+let rword = ''
 
 //stack is initially an  empty array
-// let stack: string[]; 
+let stack;
 
-//loop through and then push the each item into the stack 
+//loop through and then push each item into the stack 
 // for(let i = 0 ; i < word.length ; i++){
 //     stack.push((word[i]))
 // }
-// console.log(stack)
+
 
 // for(let i = 0 ; i < word.length ; i++){
     
@@ -277,4 +277,151 @@ function InsertionSort2(nums){
    }  return nums
 }
 
-console.log(InsertionSort2([-4 ,8 ,6, 3 , 13 ,2 ]))
+// console.log(InsertionSort2([-4 ,8 ,6, 3 , 13 ,2 ]))
+
+/**
+ * Quick sort- Pseudocode
+ * Simple work by first picking a pivot element,which could be the first element of the arr ,median or the last index of the array .(in this approach we pick the last element)
+ * then we trasverse the array and place the values less than the pivot element to the left of the pivot element and the values greater than the pivot element to the right 
+ * we continue to repeat this process until the lenth of the array is 1
+ * then we concatenate all the values of the left array , pivot element  and right array,Viola we have a sorted array in ascending order 
+ */
+
+function QuickSort(arr){
+   ///base case for recursion to break
+   if(arr.length < 2){
+      return arr
+   }
+  let pivot = arr[arr.length - 1]
+  let left = []
+  let right = []
+  for(let i = 0 ; i < arr.length - 1 ; i++){
+    if(arr[i] < pivot){
+      left = [...left , arr[i]]  //or left.push(arr[i])
+    }else{
+      right = [ ...right , arr[i]] // or right.push(arr[i]) 
+  }
+ }  return [...QuickSort(left) , pivot , ...QuickSort(right)  ]   
+}
+
+
+// console.log(QuickSort([8, 2 , 10 , 5 , -1 , 6]))
+//  Visual representation of a quick sort
+//                     [6]
+//       [-1 , 2 , 5]       [ 8 , 10 ]
+
+//             [5]                 [10]
+//    [-1 , 2]     [ null ]  [ 8 ]      [ null ]
+      
+//         [2]
+// [ -1 ]       [ null]    //base case arr.lenght now equal to 1,note that an array with a single element is a sorted array.. 
+
+// [ -1 , 2 , 5]    [null]   [ 6 ]     [ 8 , 10 ] [ null] 
+
+//           [ -1 , 2 ,5 , 6 ,8 ,10 ]
+
+numA = [ 3 ,-2 , 0 , 2 , 12 , 9]
+
+// console.log(numA.slice(3))
+
+numA.sort((a , b ) => a - b )
+
+const numbers = [ 'aas' , 'baz' , 'ark' , 'arev' , 'act' , 'abel']
+// numbers.sort((a , b) => a.localeCompare(b))
+// console.log(numbers)
+
+
+const array = [{
+   name:"Sandra" ,
+   age: 20,
+   text:" I am the first",
+   date: 2018,
+},{   
+   name:"Zebra" ,
+   age: 24,
+   text:" I am the first",
+   date: 2011,
+},{
+   name:"Tobi" ,
+   age: 18,
+   text:" I am the first",
+   date: 2010,
+},{
+   name:"Benjamin" ,
+   age: 32,
+   text:" I am the first",
+   date: 2019,
+},{
+   name:"Osaze" ,
+   age: 27,
+   text:" I am the first",
+   date: 2022,
+},{
+   name:"Ben" ,
+   age: 32,
+   text:" I am the first",
+   date: 1902,
+}]
+
+//Excercise
+//Given the data above sort the array by age , name , date . 
+//sort by name , age ,date in ascending order, descending order
+
+function sortArray(arr , filterTerm){
+  for(let i = 0 ; i < arr.length ; i++){
+    if(filterTerm === "asc"){
+      arr.sort((a ,b ) => a.name.localeCompare(b.name))
+    }
+    else if(filterTerm === "desc"){
+      arr.sort((a ,b ) => b.name.localeCompare(a.name))
+    }
+    else if(filterTerm === "high-low"){
+      arr.sort((a ,b ) => b.age - a.age)
+    }
+    else if(filterTerm === "low-high"){
+      arr.sort((a ,b ) => a.age - b.age)
+    }
+    else if(filterTerm === "old-date"){
+      arr.sort((a ,b ) => a.date - b.date)
+    }
+    else if(filterTerm === "new-date"){
+      arr.sort((a ,b ) => a.date - b.date)
+    }
+    else if(filterTerm === "default"){
+      // arr.sort((a ,b ) => a.date - a.date)
+      return arr
+    }
+  }  return arr
+}
+
+
+// console.log(sortArray(array , "default"))
+
+//Exercise
+//Given two arrays array1 = ["x" , "a" , "g" , "i" , "o"] , array2 = ["s" , "j" , "a" , "i"], create a function that returns true if there's a common element between this two array and false if there is no common element
+
+const array1 = ["x" , "a" , "g" , "o" , "i"] 
+const array2 = ["s" , "j" , "b" , "i"]
+
+function findCommonElement(arr1, arr2){
+   for(let i = 0 ; i < arr1.length; i++){
+      for (let j = 0 ; j < arr2.length ; j ++){
+         if(arr1[i] === arr2[j]){
+            console.log(`common element exist at ${arr1[i]} at index ${[i]} and ${arr2[j]} at index ${j}`)
+            return true
+         } 
+      }
+   } return false
+}
+
+// console.log(findCommonElement(array1,array2 ))
+
+
+const maps = {
+   a: true,
+   b: false,
+   c: true,
+   d: false
+}
+
+console.log(maps[1])
