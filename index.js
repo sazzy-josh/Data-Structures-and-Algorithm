@@ -417,11 +417,53 @@ function findCommonElement(arr1, arr2){
 // console.log(findCommonElement(array1,array2 ))
 
 
-const maps = {
-   a: true,
-   b: false,
-   c: true,
-   d: false
+// const maps = {
+//    a: true,
+//    b: false,
+//    c: true,
+//    d: false
+// }
+
+// console.log(maps[2])
+
+//create a function that reverses a string,say we have this 'Hey my name is Osaze' should return "ezaso si eman ym yeh"
+const string = 'Hey my name is Osaze'
+
+function ReverseWord(str){
+   if(typeof str !== "string"){
+      return "Params is not a string,please pass in a string"
+   }
+   let word = []
+   let rword = []
+   for(let i = 0 ; i < str.length ; i++){
+      console.log(str[i])
+     word += str[i]
+   }
+
+   for(let i = str.length - 1 ; i >= 0 ; i--){
+      rword += word[i] 
+   }
+   return rword
 }
 
-console.log(maps[1])
+// console.log(ReverseWord(string))
+
+//Given two sorted arrays,merge the two arrays and maintain them in ascending order.
+
+const sortedArr1 = [0 , 3 , 4 ,31];
+const sortedArr2 = [ 4 , 6 ,30]
+
+function mergeSort(sortedArr1 , sortedArr2){
+   
+   let finalArray = []
+   for(let i = 0 ; i < sortedArr1.length ; i++){
+     for (let j = 0 ; j < sortedArr2.length ; j++){
+      if(sortedArr1[i] < sortedArr2[j]){
+         finalArray.push(sortedArr1[i])
+         sortedArr1[i + 1]
+      }
+     }
+   } return finalArray
+}
+
+console.log(mergeSort(sortedArr1 , sortedArr2))
