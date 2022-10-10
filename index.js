@@ -450,8 +450,8 @@ function ReverseWord(str){
 
 //Given two sorted arrays,merge the two arrays and maintain them in ascending order.
 
-const sortedArr1 = [0 , 3 , 4 ,31];
-const sortedArr2 = [ 4 , 6 ,30]
+const sortedArray1 = [0 , 3 , 4 ,31];
+const sortedArray2 = [ 4 , 6 ,30]
 
 function mergeSort(sortedArr1 , sortedArr2){
    
@@ -460,10 +460,16 @@ function mergeSort(sortedArr1 , sortedArr2){
      for (let j = 0 ; j < sortedArr2.length ; j++){
       if(sortedArr1[i] < sortedArr2[j]){
          finalArray.push(sortedArr1[i])
-         sortedArr1[i + 1]
+         i++
+         console.log(sortedArr1[i])
+         
+      }else if(sortedArr2[j] < sortedArr1[i]){
+         finalArray.push(sortedArr2[j])
+         j++
+         console.log(sortedArr1[j])
       }
      }
    } return finalArray
 }
 
-console.log(mergeSort(sortedArr1 , sortedArr2))
+console.log(mergeSort(sortedArray1 , sortedArray2))
