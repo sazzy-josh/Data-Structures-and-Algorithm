@@ -520,7 +520,7 @@ function WrapperFunction(array) {
 } 
 
 const ans = WrapperFunction(arrNums)
-console.log(ans)
+// console.log(ans)
 
 
 function AIRTIME_TOPUP(){
