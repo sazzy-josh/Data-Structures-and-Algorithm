@@ -519,7 +519,7 @@ function WrapperFunction(array) {
 
 } 
 
-const ans = WrapperFunction(arrNums)
+// const ans = WrapperFunction(arrNums)
 // console.log(ans)
 
 
@@ -549,4 +549,74 @@ function AIRTIME_TOPUP(){
 }
 
 
-AIRTIME_TOPUP()
+// AIRTIME_TOPUP()
+
+
+function factorial(num){
+   debugger
+   if(num <= 1){
+      return 1
+   }
+   return num * factorial(num - 1)
+}
+
+// console.log(factorial(5))
+
+
+// Given the array ['s' , 'cr' , 't cod']  try to accumulate the values with a joinstring 'e' on every iteration
+
+function accumulateValues(array,joinstring){
+   debugger
+  let resultSoFar = ''
+ for(let i = 0 ; i < array.length ; i++){
+    resultSoFar += array[i] + joinstring
+ }
+ return resultSoFar
+}
+
+let values = ['s' , 'cr' , 't cod']
+
+console.log(accumulateValues(values, 'e'))
+
+
+// UNDERSTANDING THE CONCEPT OF STACK IN JS
+/**
+ * PUSH - BASICALLY IS TO INSERT INTO THE TO STACK,OR ADD A NEW ELEMENT ONTOP OF THE STACK
+ * POP - MEANS TO REMOVE THE LAST ELEMENT FROM A STACK
+ * PEEK - MEANS TO GLANCE THROUGH THE LAST ELEMENT OF A STACK,THIS DOESNT REMOVE OR ADD TO THE STACK
+ */
+
+function Stack() { 
+   this._top = -1; 
+   this._values = []
+}
+
+//THE PUSH METHOD
+Stack.prototype.push = function(data){
+   this._top += 1;
+   this._values[this._top] = data
+}
+
+
+//THE POP METHOD
+Stack.prototype.pop = function(){
+   //first check if the stack is empty,if true then return null
+   if(this._values.length <  0 ){
+      return null
+   };
+   
+   const topElement = this._values[this._top];
+   this.top-- 
+   this._values.length--
+
+   return topElement
+} 
+
+//THE PEEK METHOD
+Stack.prototype.peek = function(){
+   if(this._top < 0){
+      return null
+   }
+
+   return this._values[this._top]
+}
