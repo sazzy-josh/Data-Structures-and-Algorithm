@@ -576,7 +576,7 @@ function accumulateValues(array,joinstring){
 
 let values = ['s' , 'cr' , 't cod']
 
-console.log(accumulateValues(values, 'e'))
+// console.log(accumulateValues(values, 'e'))
 
 
 // UNDERSTANDING THE CONCEPT OF STACK IN JS
@@ -608,7 +608,6 @@ Stack.prototype.pop = function(){
    const topElement = this._values[this._top];
    this.top-- 
    this._values.length--
-
    return topElement
 } 
 
@@ -620,3 +619,39 @@ Stack.prototype.peek = function(){
 
    return this._values[this._top]
 }
+
+/**
+ * QUEUE IS A FIFO KIND OF DATA STRUCTURE
+ * It's a linear collection where items are inserted at the end and are removed from the front.
+ * Inserting into the queue is called Enqueue.
+ * Extracting from the queue is called Deque
+ */
+
+
+
+function Queue() { 
+   this._head = 0; 
+   this._data = []; 
+ }
+
+ //Better approach to dequeue
+ Queue.prototype.dequeue = function() { 
+   if (this._head < 0 ||  
+       this._head >= this._data.length) { 
+     return null; 
+   } 
+    
+   var dequeuedItem = this._data[this._head]; 
+   this._head++; 
+    
+   if (this._head === 100) { 
+     // We have 100 items in garbage 
+     // Remove items at indexes 0 to 99. 
+     this._data.splice(0, 100); 
+      
+     // Reset the head 
+     this._head = 0; 
+   } 
+    
+   return dequeuedItem; 
+ };
