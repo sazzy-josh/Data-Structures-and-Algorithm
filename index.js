@@ -586,39 +586,41 @@ let values = ['s' , 'cr' , 't cod']
  * PEEK - MEANS TO GLANCE THROUGH THE LAST ELEMENT OF A STACK,THIS DOESNT REMOVE OR ADD TO THE STACK
  */
 
-function Stack() { 
-   this._top = -1; 
-   this._values = []
-}
-
-//THE PUSH METHOD
-Stack.prototype.push = function(data){
-   this._top += 1;
-   this._values[this._top] = data
-}
-
-
-//THE POP METHOD
-Stack.prototype.pop = function(){
-   //first check if the stack is empty,if true then return null
-   if(this._values.length <  0 ){
-      return null
-   };
-   
-   const topElement = this._values[this._top];
-   this.top-- 
-   this._values.length--
-   return topElement
-} 
-
-//THE PEEK METHOD
-Stack.prototype.peek = function(){
-   if(this._top < 0){
-      return null
+class Stack {
+   constructor() {
+      this._top = -1;
+      this._values = [];
    }
+   //THE PUSH METHOD
+   push(data) {
+      this._top += 1;
+      this._values[this._top] = data;
+   }
+   //THE POP METHOD
+   pop() {
+      //first check if the stack is empty,if true then return null
+      if (this._values.length < 0) {
+         return null;
+      };
 
-   return this._values[this._top]
+      const topElement = this._values[this._top];
+      this.top--;
+      this._values.length--;
+      return topElement;
+   }
+   //THE PEEK METHOD
+   peek() {
+      if (this._top < 0) {
+         return null;
+      }
+
+      return this._values[this._top];
+   }
 }
+
+
+
+
 
 /**
  * QUEUE IS A FIFO KIND OF DATA STRUCTURE
@@ -629,29 +631,106 @@ Stack.prototype.peek = function(){
 
 
 
-function Queue() { 
-   this._head = 0; 
-   this._data = []; 
- }
+class Queue {
+   constructor() {
+      this._head = 0;
+      this._data = [];
+   }
+   //Better approach to dequeue
+   dequeue() {
+      if (this._head < 0 ||
+         this._head >= this._data.length) {
+         return null;
+      }
 
- //Better approach to dequeue
- Queue.prototype.dequeue = function() { 
-   if (this._head < 0 ||  
-       this._head >= this._data.length) { 
-     return null; 
-   } 
-    
-   var dequeuedItem = this._data[this._head]; 
-   this._head++; 
-    
-   if (this._head === 100) { 
-     // We have 100 items in garbage 
-     // Remove items at indexes 0 to 99. 
-     this._data.splice(0, 100); 
+      var dequeuedItem = this._data[this._head];
+      this._head++;
+
+      if (this._head === 100) {
+         // We have 100 items in garbage 
+         // Remove items at indexes 0 to 99. 
+         this._data.splice(0, 100);
+
+         // Reset the head 
+         this._head = 0;
+      }
+
+      return dequeuedItem;
+   }
+}
+
+
+ //LINKEDLIST
+
+ class Node {
+   constructor(data) {
+      this.data = data;
+      this.next = null;
+   }
+} 
+  
+ class LinkedList {
+   constructor() {
+      this._length = 0;
+      this._head = null;
+   }
+   push(data) {
+      // Create a new node with Data 
+      var node = new Node(data);
+
+
+      // We are inserting the first node in the list 
+      if (this._head === null) {
+         this._head = node;
+      } else {
+         // Find the last node 
+         var current = this._head;
+
+         while (current.next) {
+            current = current.next;
+         }
+
+         current.next = node;
+      }
+
+      // Increment the length 
+      this._length++;
+   }
+   // We follow the 0 based indexes just like Arrays 
+   itemAt(index) {
+      // Ensure that the index is within bounds 
+      if (index < 0 || index >= this._length) {
+         // Return Null when index is out of bounds 
+         return null;
+      }
+
+      var current = this._head;
+      var counter = 0;
+
+      while (counter < index) {
+         current = current.next;
+         counter++;
+      }
+
+      return current.data;
+   }
+   // Returns Size of Current Linked List 
+   size() {
+      return this._length;
+   }
+} 
+  
+  
+  
       
-     // Reset the head 
-     this._head = 0; 
-   } 
-    
-   return dequeuedItem; 
- };
+ // Let's create a Linked List and add 3 nodes 
+ var list = new LinkedList(); 
+ list.push(100); 
+ list.push(200); 
+ list.push(300); 
+  
+ for (i = 0; i < list.size(); i++) { 
+   console.log("Node value: " + list.itemAt(i)); 
+ }
+ 
+ 
