@@ -522,7 +522,7 @@ function WrapperFunction(array) {
 // const ans = WrapperFunction(arrNums)
 // console.log(ans)
 
-
+//REAL LIFE CASE SCENARIO FOR RECURSION... 
 function AIRTIME_TOPUP(){
    let dialCode = prompt("Enter USSD CODE")
    if(dialCode === "*123#" ){
@@ -675,11 +675,11 @@ class Queue {
       this._head = null;
    }
    push(data) {
-      // Create a new node with Data 
+      // Instantiate a new node with Data ..PS => A NODE IS JUST AN OBJECT THAT MAKES IT POSSIBLE TO CREATE REUSABLE OBJECTS 
       var node = new Node(data);
 
 
-      // We are inserting the first node in the list 
+      //Check if we are inserting the first node in the list 
       if (this._head === null) {
          this._head = node;
       } else {
@@ -696,6 +696,8 @@ class Queue {
       // Increment the length 
       this._length++;
    }
+
+
    // We follow the 0 based indexes just like Arrays 
    itemAt(index) {
       // Ensure that the index is within bounds 
@@ -718,19 +720,73 @@ class Queue {
    size() {
       return this._length;
    }
+
+   //Remove an item from the linkedlist
+   remove (index) { 
+      // Ensure that the index is within bounds 
+      if (index < 0 || index >= this._length) { 
+      return null; 
+      } 
+       
+      var current = this._head; 
+       
+      if (index === 0) { 
+        // Special case for removing the head node. 
+        this._head = current.next; 
+      } else { 
+        // Track previous element 
+        var previous = null; 
+        var counter = 0; 
+         
+        while (counter < index) { 
+          previous = current; 
+          current = current.next; 
+          counter++; 
+        } 
+         
+        // Set previous node's next to the node after the deleted node 
+        previous.next = current.next; 
+      } 
+       
+      this._length--; 
+      return current.data; 
+    } 
+    //Search for an item in the list
+    search(index){
+
+    }
 } 
+      
+ // Let's create a Linked List and add 3 nodes 
+ var list = new LinkedList(); 
+ list.push('Stacks'); 
+ list.push('Queues'); 
+ list.push('Arrays'); 
+ list.push('Sets'); 
   
+ console.log("Length before removal: " + list.size()); 
+  
+ // Remove the 3rd element 
+ var removed = list.remove(2); 
+ console.log("removed: " + removed); 
+  
+ // Remove the head node 
+ var removed = list.remove(0); 
+ console.log("removed: " + removed); 
+  
+ console.log("Length after removal: " + list.size());
+
   
   
       
  // Let's create a Linked List and add 3 nodes 
- var list = new LinkedList(); 
- list.push(100); 
- list.push(200); 
- list.push(300); 
+//  var list = new LinkedList(); 
+//  list.push(100); 
+//  list.push(200); 
+//  list.push(300); 
   
- for (i = 0; i < list.size(); i++) { 
-   console.log("Node value: " + list.itemAt(i)); 
- }
+//  for (i = 0; i < list.size(); i++) { 
+//    console.log("Node value: " + list.itemAt(i)); 
+//  }
  
  
