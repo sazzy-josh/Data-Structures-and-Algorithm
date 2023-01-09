@@ -792,14 +792,14 @@ class Queue {
   
   
       
- // Let's create a Linked List and add 3 nodes 
-//  var list = new LinkedList(); 
-//  list.push(100); 
-//  list.push(200); 
-//  list.push(300); 
+//Let's create a Linked List and add 3 nodes 
+ var list = new LinkedList(); 
+ list.push(100); 
+ list.push(200); 
+ list.push(300); 
   
-//  for (i = 0; i < list.size(); i++) { 
-//    console.log("Node value: " + list.itemAt(i)); 
-//  }
+ for (i = 0; i < list.size(); i++) { 
+   console.log("Node value: " + list.itemAt(i)); 
+ }
  
  
