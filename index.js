@@ -773,12 +773,82 @@ var removed = list.remove(2);
 var removed = list.remove(0);
 //  console.log("removed: " + removed);
 
-// Let's create a Linked List and add 3 nodes
-//  var list = new LinkedList();
-//  list.push(100);
-//  list.push(200);
-//  list.push(300);
+//Let's create a Linked List and add 3 nodes
+var list = new LinkedList();
+list.push(100);
+list.push(200);
+list.push(300);
 
-//  for (i = 0; i < list.size(); i++) {
-//    console.log("Node value: " + list.itemAt(i));
-//  }
+for (i = 0; i < list.size(); i++) {
+  // console.log("Node value: " + list.itemAt(i));
+}
+
+//BINARY SEARCH TREE
+
+class BSTNode {
+  constructor(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BST {
+  constructor() {
+    this._root = null;
+  }
+
+  insert(data) {
+    //Instantiate a new BST Node
+    var node = new BSTNode(data);
+
+    // If it's the first node
+    if (this._root === null) {
+      this._root = node;
+      return;
+    }
+
+    var current = this._root;
+
+    while (current) {
+      if (data < current.data) {
+        if (current.left === null) {
+          current.left = node;
+          return;
+        }
+        current = current.left;
+      } else if (data > current.data) {
+        if (current.right === null) {
+          current.right = node;
+          return;
+        }
+        current = current.right;
+      } else {
+        // Duplicates are not supported
+        return;
+      }
+    }
+  }
+
+  //Lookup in BST
+  contains(data) {
+    var current = this._root;
+
+    while (current) {
+      if (data === current.data) {
+        return true;
+      }
+
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false;
+  }
+}
+//Implementing Search in a BST
+//We've already described how lookup works in Binary Search Tree. Let's look
+//at the code for the lookup method as well. It returns True if the key is found
+//and returns false otherwise.
