@@ -688,6 +688,7 @@ class Queue {
 
          while (current.next) {
             current = current.next;
+            console.log(current)
          }
 
          current.next = node;
@@ -753,6 +754,18 @@ class Queue {
     } 
     //Search for an item in the list
     search(index){
+       if(index < 0 || index >= this._length){
+         return null
+       }
+
+       let current = this._head
+       let counter = 0
+       while (counter < index) {
+         current = current.next
+         counter++
+       }
+
+       return current.data
 
     }
 } 
@@ -764,17 +777,17 @@ class Queue {
  list.push('Arrays'); 
  list.push('Sets'); 
   
- console.log("Length before removal: " + list.size()); 
-  
+ //  console.log("searched:" + search)
+ var search = list.search(2);
+   
  // Remove the 3rd element 
  var removed = list.remove(2); 
- console.log("removed: " + removed); 
+//  console.log("removed: " + removed); 
   
  // Remove the head node 
  var removed = list.remove(0); 
- console.log("removed: " + removed); 
+//  console.log("removed: " + removed); 
   
- console.log("Length after removal: " + list.size());
 
   
   
