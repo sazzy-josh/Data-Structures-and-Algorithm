@@ -799,7 +799,7 @@ class Queue {
  list.push(300); 
   
  for (i = 0; i < list.size(); i++) { 
-   console.log("Node value: " + list.itemAt(i)); 
+   // console.log("Node value: " + list.itemAt(i)); 
  }
  
  
