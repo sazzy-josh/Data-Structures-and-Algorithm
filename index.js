@@ -31,50 +31,50 @@ let stack;
 //?factorial
 
 function factorial(n) {
-   let result = 1;
-   for (let i = 2; i <= n; i++) {
-      console.log(`${i}|| ${result} * ${i}`);
-      result = result * i;
-      console.log(result);
-   }
-   console.log("-----------------");
+  let result = 1;
+  for (let i = 2; i <= n; i++) {
+    console.log(`${i}|| ${result} * ${i}`);
+    result = result * i;
+    console.log(result);
+  }
+  console.log("-----------------");
 }
 
 //?fibonacci sequence whereby the the value of n in an array is the sum of the last two values,say we have [0,1,1,2,3,5]
 
 function fibonacci(n) {
-   let arr = [0, 1];
-   for (let i = 2; i <= n; i++) {
-      arr[i] = arr[i - 1] + arr[i - 2];
-      console.log(
-         ` for n = ${[i]} ||  ${arr[i]} = ${arr[i - 1]} + ${arr[i - 2]} `
-      );
-      console.log(arr);
-      console.log("-----------------");
-   }
+  let arr = [0, 1];
+  for (let i = 2; i <= n; i++) {
+    arr[i] = arr[i - 1] + arr[i - 2];
+    console.log(
+      ` for n = ${[i]} ||  ${arr[i]} = ${arr[i - 1]} + ${arr[i - 2]} `
+    );
+    console.log(arr);
+    console.log("-----------------");
+  }
 }
 //  fibonacci(5)
 //  fibonacci(8)
 
 //?Check if a number is a prime number(Prime numbers are natural numbers that are greater than 1 and not a products of two natural numbers)
 function checkPrime(n) {
-   if (n < 2) {
-      console.log(`${n} - is not a prime number`);
-   }
-   for (let i = 2; i < n; i++) {
-      if (n % i === 0) {
-         console.log(`${n} % ${i}`);
-         console.log(
-            `${n} is a not Prime number because it is divisble without a remainder`
-         );
-         console.log("-------------------------");
-         return false;
-      } else {
-         console.log(`${n} is a prime number`);
-         return true;
-      }
-      console.log("---------------------");
-   }
+  if (n < 2) {
+    console.log(`${n} - is not a prime number`);
+  }
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      console.log(`${n} % ${i}`);
+      console.log(
+        `${n} is a not Prime number because it is divisble without a remainder`
+      );
+      console.log("-------------------------");
+      return false;
+    } else {
+      console.log(`${n} is a prime number`);
+      return true;
+    }
+    console.log("---------------------");
+  }
 }
 // checkPrime(150)
 // checkPrime(5)
@@ -83,14 +83,14 @@ function checkPrime(n) {
 const arr = [2, 3, 4, 0, 1]; //find index of 4
 
 function find(t) {
-   for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === t) {
-         console.log(`${t} is at index ${[i]}`);
-         return `${t} is at index ${[i]}`;
-      }
-   }
-   console.log(-1);
-   return -1;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === t) {
+      console.log(`${t} is at index ${[i]}`);
+      return `${t} is at index ${[i]}`;
+    }
+  }
+  console.log(-1);
+  return -1;
 }
 
 // find(4)
@@ -100,23 +100,23 @@ let colors = [2, 9, 3, 4, 6, 5, 1];
 
 let i = 1;
 while (i < colors.length) {
-   // console.log(`${colors[i]}`)
-   i++;
+  // console.log(`${colors[i]}`)
+  i++;
 }
 
 let speed = 0;
 
 while (speed <= 100) {
-   // console.log(`the speed of the car is ${speed}MPH`)
-   speed += 10;
+  // console.log(`the speed of the car is ${speed}MPH`)
+  speed += 10;
 }
 
 let a = 1;
 let b = 10;
 
 do {
-   // console.log(`${a}`)
-   a++;
+  // console.log(`${a}`)
+  a++;
 } while (a <= b);
 
 //?Binary Search -- only works on sorted array ,say we have an array [ -2 , 0 , 3, 4 , 8 , 24 , 30], find the target t,where t is 4
@@ -130,25 +130,25 @@ do {
  */
 
 const BinarySearch = (arr, target) => {
-   let leftindex = 0;
-   let rightIndex = arr.length - 1;
+  let leftindex = 0;
+  let rightIndex = arr.length - 1;
 
-   while (leftindex <= rightIndex) {
-      let middleindex = Math.floor((leftindex + rightIndex) / 2);
-      console.log(middleindex);
-      if (arr[middleindex] === target) {
-         return middleindex;
-      }
-      if (target < arr[middleindex]) {
-         rightIndex = middleindex - 1;
-         console.log(` rightIndex = ${rightIndex} `);
-      } else {
-         leftindex = middleindex + 1;
-         console.log(` leftIndex = ${leftindex} `);
-      }
-   }
-   console.log(`couldnt find the value ${target}`);
-   return -1;
+  while (leftindex <= rightIndex) {
+    let middleindex = Math.floor((leftindex + rightIndex) / 2);
+    console.log(middleindex);
+    if (arr[middleindex] === target) {
+      return middleindex;
+    }
+    if (target < arr[middleindex]) {
+      rightIndex = middleindex - 1;
+      console.log(` rightIndex = ${rightIndex} `);
+    } else {
+      leftindex = middleindex + 1;
+      console.log(` leftIndex = ${leftindex} `);
+    }
+  }
+  console.log(`couldnt find the value ${target}`);
+  return -1;
 };
 
 //   console.log(BinarySearch([2, 3 ,4, 6, 8  , 10] , 14))
@@ -161,19 +161,19 @@ const BinarySearch = (arr, target) => {
 
 //Bubble sort approach comparing the previous values
 function BubbleSort(arr) {
-   let swapped;
-   do {
-      swapped = false;
-      for (let i = 1; i <= arr.length; i++) {
-         if (arr[i] < arr[i - 1]) {
-            let temp = arr[i];
-            arr[i] = arr[i - 1];
-            arr[i - 1] = temp;
-            console.log(arr);
-            swapped = true;
-         }
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 1; i <= arr.length; i++) {
+      if (arr[i] < arr[i - 1]) {
+        let temp = arr[i];
+        arr[i] = arr[i - 1];
+        arr[i - 1] = temp;
+        console.log(arr);
+        swapped = true;
       }
-   } while (swapped);
+    }
+  } while (swapped);
 }
 
 // console.log(BubbleSort([6 , -1 , 4 , 0 , 5 , 8 ]))
@@ -181,53 +181,53 @@ function BubbleSort(arr) {
 //Bubble Sort comparing the adjacent values , say we have an array [ 2 , 1 , 4 , 0 , -3 , 12 , 8 ]
 
 function BubbleSorting(arr) {
-   let swapped;
-   //run a do , while loops to run the array atleast once to see if it meets the condition ,whether it is sorted or not sorted
-   do {
-      let swapped = false;
-      for (let i = 0; i < arr.length - 1; i++) {
-         if (arr[i] > arr[i + 1]) {
-            //create a temp variale to store value of arr[i]
-            let temp = arr[i];
-            arr[i + 1] = arr[i];
-            arr[i] = temp;
-            //notify the while loop that the array was swapped by setting ther value of swapped to true..
-            swapped = true;
-         }
+  let swapped;
+  //run a do , while loops to run the array atleast once to see if it meets the condition ,whether it is sorted or not sorted
+  do {
+    let swapped = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        //create a temp variale to store value of arr[i]
+        let temp = arr[i];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+        //notify the while loop that the array was swapped by setting ther value of swapped to true..
+        swapped = true;
       }
-   } while (swapped);
+    }
+  } while (swapped);
 }
 
 //console.log(BubbleSort( [ 2, 0 , -4 , 6 , 2 , 7 ]))
 
 function test(arr) {
-   for (let i = 0; i < arr.length - 1; i++) {
-      if (arr[i] > arr[i + 1]) {
-         //create a temp variale to store value of arr[i]
-         let temp = arr[i];
-         arr[i] = arr[i + 1];
-         arr[i + 1] = temp;
-         console.log(arr);
-      }
-   }
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] > arr[i + 1]) {
+      //create a temp variale to store value of arr[i]
+      let temp = arr[i];
+      arr[i] = arr[i + 1];
+      arr[i + 1] = temp;
+      console.log(arr);
+    }
+  }
 }
 // console.log(test([2 , 15 , -1 , 9 , -4 , 0]))
 
 //reverse case for Bubble Sort, say we have an array [ 2, 3 , 0 , 5 ,-1], we expect an outout of [  ]
 
 function ReverseSorting(arr) {
-   let swapped = false;
-   do {
-      for (let i = 0; i < arr.length; i++) {
-         if (arr[i] < arr[i + 1]) {
-            let temp = arr[i];
-            arr[i] = arr[i + 1];
-            arr[i + 1] = temp;
-            swapped = true;
-            console.log(arr);
-         }
+  let swapped = false;
+  do {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] < arr[i + 1]) {
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        swapped = true;
+        console.log(arr);
       }
-   } while (swapped);
+    }
+  } while (swapped);
 }
 
 // console.log(ReverseSorting( [2, 3 , 0 , 5 , -1]))
@@ -244,15 +244,15 @@ function ReverseSorting(arr) {
 
 //First approach
 function insertionSort(arr) {
-   for (let i = 1; i < arr.length; i++) {
-      let NIS = arr[i];
-      let j;
-      for (j = i - 1; j >= 0 && arr[j] > NIS; j--) {
-         arr[j + 1] = arr[j];
-      }
-      arr[j + 1] = NIS;
-   }
-   return arr;
+  for (let i = 1; i < arr.length; i++) {
+    let NIS = arr[i];
+    let j;
+    for (j = i - 1; j >= 0 && arr[j] > NIS; j--) {
+      arr[j + 1] = arr[j];
+    }
+    arr[j + 1] = NIS;
+  }
+  return arr;
 }
 
 // console.log(insertionSort([ -4 ,8 ,6, 3 , 13 ,2 ]))
@@ -260,16 +260,16 @@ function insertionSort(arr) {
 //Second approach
 
 function InsertionSort2(nums) {
-   for (let i = 1; i < nums.length; i++) {
-      let NIS = nums[i];
-      let j = i - 1;
-      while (j >= 0 && nums[j] > NIS) {
-         nums[j + 1] = nums[j];
-         j--;
-      }
-      nums[j + 1] = NIS;
-   }
-   return nums;
+  for (let i = 1; i < nums.length; i++) {
+    let NIS = nums[i];
+    let j = i - 1;
+    while (j >= 0 && nums[j] > NIS) {
+      nums[j + 1] = nums[j];
+      j--;
+    }
+    nums[j + 1] = NIS;
+  }
+  return nums;
 }
 
 // console.log(InsertionSort2([-4 ,8 ,6, 3 , 13 ,2 ]))
@@ -283,21 +283,21 @@ function InsertionSort2(nums) {
  */
 
 function QuickSort(arr) {
-   ///base case for recursion to break
-   if (arr.length < 2) {
-      return arr;
-   }
-   let pivot = arr[arr.length - 1];
-   let left = [];
-   let right = [];
-   for (let i = 0; i < arr.length - 1; i++) {
-      if (arr[i] < pivot) {
-         left = [...left, arr[i]]; //or left.push(arr[i])
-      } else {
-         right = [...right, arr[i]]; // or right.push(arr[i])
-      }
-   }
-   return [...QuickSort(left), pivot, ...QuickSort(right)];
+  ///base case for recursion to break
+  if (arr.length < 2) {
+    return arr;
+  }
+  let pivot = arr[arr.length - 1];
+  let left = [];
+  let right = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      left = [...left, arr[i]]; //or left.push(arr[i])
+    } else {
+      right = [...right, arr[i]]; // or right.push(arr[i])
+    }
+  }
+  return [...QuickSort(left), pivot, ...QuickSort(right)];
 }
 
 // console.log(QuickSort([8, 2 , 10 , 5 , -1 , 6]))
@@ -326,42 +326,42 @@ const numbers = ["aas", "baz", "ark", "arev", "act", "abel"];
 // console.log(numbers)
 
 const array = [
-   {
-      name: "Sandra",
-      age: 20,
-      text: " I am the first",
-      date: 2018,
-   },
-   {
-      name: "Zebra",
-      age: 24,
-      text: " I am the first",
-      date: 2011,
-   },
-   {
-      name: "Tobi",
-      age: 18,
-      text: " I am the first",
-      date: 2010,
-   },
-   {
-      name: "Benjamin",
-      age: 32,
-      text: " I am the first",
-      date: 2019,
-   },
-   {
-      name: "Osaze",
-      age: 27,
-      text: " I am the first",
-      date: 2022,
-   },
-   {
-      name: "Ben",
-      age: 32,
-      text: " I am the first",
-      date: 1902,
-   },
+  {
+    name: "Sandra",
+    age: 20,
+    text: " I am the first",
+    date: 2018,
+  },
+  {
+    name: "Zebra",
+    age: 24,
+    text: " I am the first",
+    date: 2011,
+  },
+  {
+    name: "Tobi",
+    age: 18,
+    text: " I am the first",
+    date: 2010,
+  },
+  {
+    name: "Benjamin",
+    age: 32,
+    text: " I am the first",
+    date: 2019,
+  },
+  {
+    name: "Osaze",
+    age: 27,
+    text: " I am the first",
+    date: 2022,
+  },
+  {
+    name: "Ben",
+    age: 32,
+    text: " I am the first",
+    date: 1902,
+  },
 ];
 
 //Excercise
@@ -369,25 +369,25 @@ const array = [
 //sort by name , age ,date in ascending order, descending order
 
 function sortArray(arr, filterTerm) {
-   for (let i = 0; i < arr.length; i++) {
-      if (filterTerm === "asc") {
-         arr.sort((a, b) => a.name.localeCompare(b.name));
-      } else if (filterTerm === "desc") {
-         arr.sort((a, b) => b.name.localeCompare(a.name));
-      } else if (filterTerm === "high-low") {
-         arr.sort((a, b) => b.age - a.age);
-      } else if (filterTerm === "low-high") {
-         arr.sort((a, b) => a.age - b.age);
-      } else if (filterTerm === "old-date") {
-         arr.sort((a, b) => a.date - b.date);
-      } else if (filterTerm === "new-date") {
-         arr.sort((a, b) => a.date - b.date);
-      } else if (filterTerm === "default") {
-         // arr.sort((a ,b ) => a.date - a.date)
-         return arr;
-      }
-   }
-   return arr;
+  for (let i = 0; i < arr.length; i++) {
+    if (filterTerm === "asc") {
+      arr.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (filterTerm === "desc") {
+      arr.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (filterTerm === "high-low") {
+      arr.sort((a, b) => b.age - a.age);
+    } else if (filterTerm === "low-high") {
+      arr.sort((a, b) => a.age - b.age);
+    } else if (filterTerm === "old-date") {
+      arr.sort((a, b) => a.date - b.date);
+    } else if (filterTerm === "new-date") {
+      arr.sort((a, b) => a.date - b.date);
+    } else if (filterTerm === "default") {
+      // arr.sort((a ,b ) => a.date - a.date)
+      return arr;
+    }
+  }
+  return arr;
 }
 
 // console.log(sortArray(array , "default"))
@@ -399,18 +399,19 @@ const array1 = ["x", "a", "g", "o", "i"];
 const array2 = ["s", "j", "b", "i"];
 
 function findCommonElement(arr1, arr2) {
-   for (let i = 0; i < arr1.length; i++) {
-      for (let j = 0; j < arr2.length; j++) {
-         if (arr1[i] === arr2[j]) {
-            console.log(
-               `common element exist at ${arr1[i]} at index ${[i]} and ${arr2[j]
-               } at index ${j}`
-            );
-            return true;
-         }
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        console.log(
+          `common element exist at ${arr1[i]} at index ${[i]} and ${
+            arr2[j]
+          } at index ${j}`
+        );
+        return true;
       }
-   }
-   return false;
+    }
+  }
+  return false;
 }
 
 // console.log(findCommonElement(array1,array2 ))
@@ -428,20 +429,20 @@ function findCommonElement(arr1, arr2) {
 const string = "Hey my name is Osaze";
 
 function ReverseWord(str) {
-   if (typeof str !== "string") {
-      return "Params is not a string,please pass in a string";
-   }
-   let word = [];
-   let rword = [];
-   for (let i = 0; i < str.length; i++) {
-      console.log(str[i]);
-      word += str[i];
-   }
+  if (typeof str !== "string") {
+    return "Params is not a string,please pass in a string";
+  }
+  let word = [];
+  let rword = [];
+  for (let i = 0; i < str.length; i++) {
+    console.log(str[i]);
+    word += str[i];
+  }
 
-   for (let i = str.length - 1; i >= 0; i--) {
-      rword += word[i];
-   }
-   return rword;
+  for (let i = str.length - 1; i >= 0; i--) {
+    rword += word[i];
+  }
+  return rword;
 }
 
 // console.log(ReverseWord(string))
@@ -452,21 +453,21 @@ const sortedArray1 = [0, 3, 4, 31];
 const sortedArray2 = [4, 6, 30];
 
 function mergeSort(sortedArr1, sortedArr2) {
-   let finalArray = [];
-   for (let i = 0; i < sortedArr1.length; i++) {
-      for (let j = 0; j < sortedArr2.length; j++) {
-         if (sortedArr1[i] < sortedArr2[j]) {
-            finalArray.push(sortedArr1[i]);
-            i++;
-            console.log(sortedArr1[i]);
-         } else if (sortedArr2[j] < sortedArr1[i]) {
-            finalArray.push(sortedArr2[j]);
-            j++;
-            console.log(sortedArr1[j]);
-         }
+  let finalArray = [];
+  for (let i = 0; i < sortedArr1.length; i++) {
+    for (let j = 0; j < sortedArr2.length; j++) {
+      if (sortedArr1[i] < sortedArr2[j]) {
+        finalArray.push(sortedArr1[i]);
+        i++;
+        console.log(sortedArr1[i]);
+      } else if (sortedArr2[j] < sortedArr1[i]) {
+        finalArray.push(sortedArr2[j]);
+        j++;
+        console.log(sortedArr1[j]);
       }
-   }
-   return finalArray;
+    }
+  }
+  return finalArray;
 }
 
 // console.log(mergeSort(sortedArray1 , sortedArray2))
@@ -490,27 +491,27 @@ function mergeSort(sortedArr1, sortedArr2) {
 // console.log(countdown(values , values.length ))
 
 function factoriall(n) {
-   if (n === 1) {
-      return 1;
-   }
-   return n * factoriall(n - 1);
+  if (n === 1) {
+    return 1;
+  }
+  return n * factoriall(n - 1);
 }
 
 // console.log(factoriall(5))
 const arrNums = [2, 1, 5, 6];
 
 function WrapperFunction(array) {
-   function addValues(index, total) {
-      total += array[index];
-      //* BASE CASE
-      if (index === array.length - 1) {
-         return parseInt(total);
-         //*RECURSIVE CASE
-      } else {
-         return addValues(index + 1, total);
-      }
-   }
-   return addValues(0, 0);
+  function addValues(index, total) {
+    total += array[index];
+    //* BASE CASE
+    if (index === array.length - 1) {
+      return parseInt(total);
+      //*RECURSIVE CASE
+    } else {
+      return addValues(index + 1, total);
+    }
+  }
+  return addValues(0, 0);
 }
 
 // const ans = WrapperFunction(arrNums)
@@ -518,43 +519,43 @@ function WrapperFunction(array) {
 
 //REAL LIFE CASE SCENARIO FOR RECURSION...
 function AIRTIME_TOPUP() {
-   let dialCode = prompt("Enter USSD CODE");
-   if (dialCode === "*123#") {
-      let selectOption = prompt(`Airtime TopUP 
+  let dialCode = prompt("Enter USSD CODE");
+  if (dialCode === "*123#") {
+    let selectOption = prompt(`Airtime TopUP 
            1. Recharge From Bank
            2. Borrow Credit
            3. Me2U
            4. Recharge Voucher
       `);
-      let selectedOption = parseInt(selectOption);
-      if (
-         selectedOption === 1 ||
-         selectedOption === 2 ||
-         selectedOption === 3 ||
-         selectedOption === 4
-      ) {
-         if (confirm("Are you sure ?")) {
-            alert("Congrats!Your transaction was successfull");
-         }
-         return;
-      } else {
-         alert("Wrong input");
-         return AIRTIME_TOPUP();
+    let selectedOption = parseInt(selectOption);
+    if (
+      selectedOption === 1 ||
+      selectedOption === 2 ||
+      selectedOption === 3 ||
+      selectedOption === 4
+    ) {
+      if (confirm("Are you sure ?")) {
+        alert("Congrats!Your transaction was successfull");
       }
-   } else {
-      alert("Invalid ussd code");
+      return;
+    } else {
+      alert("Wrong input");
       return AIRTIME_TOPUP();
-   }
+    }
+  } else {
+    alert("Invalid ussd code");
+    return AIRTIME_TOPUP();
+  }
 }
 
 // AIRTIME_TOPUP()
 
 function factorial(num) {
-   debugger;
-   if (num <= 1) {
-      return 1;
-   }
-   return num * factorial(num - 1);
+  debugger;
+  if (num <= 1) {
+    return 1;
+  }
+  return num * factorial(num - 1);
 }
 
 // console.log(factorial(5))
@@ -562,12 +563,12 @@ function factorial(num) {
 // Given the array ['s' , 'cr' , 't cod']  try to accumulate the values with a joinstring 'e' on every iteration
 
 function accumulateValues(array, joinstring) {
-   debugger;
-   let resultSoFar = "";
-   for (let i = 0; i < array.length; i++) {
-      resultSoFar += array[i] + joinstring;
-   }
-   return resultSoFar;
+  debugger;
+  let resultSoFar = "";
+  for (let i = 0; i < array.length; i++) {
+    resultSoFar += array[i] + joinstring;
+  }
+  return resultSoFar;
 }
 
 let values = ["s", "cr", "t cod"];
@@ -582,35 +583,35 @@ let values = ["s", "cr", "t cod"];
  */
 
 class Stack {
-   constructor() {
-      this._top = -1;
-      this._values = [];
-   }
-   //THE PUSH METHOD
-   push(data) {
-      this._top += 1;
-      this._values[this._top] = data;
-   }
-   //THE POP METHOD
-   pop() {
-      //first check if the stack is empty,if true then return null
-      if (this._values.length < 0) {
-         return null;
-      }
+  constructor() {
+    this._top = -1;
+    this._values = [];
+  }
+  //THE PUSH METHOD
+  push(data) {
+    this._top += 1;
+    this._values[this._top] = data;
+  }
+  //THE POP METHOD
+  pop() {
+    //first check if the stack is empty,if true then return null
+    if (this._values.length < 0) {
+      return null;
+    }
 
-      const topElement = this._values[this._top];
-      this.top--;
-      this._values.length--;
-      return topElement;
-   }
-   //THE PEEK METHOD
-   peek() {
-      if (this._top < 0) {
-         return null;
-      }
+    const topElement = this._values[this._top];
+    this.top--;
+    this._values.length--;
+    return topElement;
+  }
+  //THE PEEK METHOD
+  peek() {
+    if (this._top < 0) {
+      return null;
+    }
 
-      return this._values[this._top];
-   }
+    return this._values[this._top];
+  }
 }
 
 /**
@@ -621,137 +622,137 @@ class Stack {
  */
 
 class Queue {
-   constructor() {
+  constructor() {
+    this._head = 0;
+    this._data = [];
+  }
+  //Better approach to dequeue
+  dequeue() {
+    if (this._head < 0 || this._head >= this._data.length) {
+      return null;
+    }
+
+    var dequeuedItem = this._data[this._head];
+    this._head++;
+
+    if (this._head === 100) {
+      // We have 100 items in garbage
+      // Remove items at indexes 0 to 99.
+      this._data.splice(0, 100);
+
+      // Reset the head
       this._head = 0;
-      this._data = [];
-   }
-   //Better approach to dequeue
-   dequeue() {
-      if (this._head < 0 || this._head >= this._data.length) {
-         return null;
-      }
+    }
 
-      var dequeuedItem = this._data[this._head];
-      this._head++;
-
-      if (this._head === 100) {
-         // We have 100 items in garbage
-         // Remove items at indexes 0 to 99.
-         this._data.splice(0, 100);
-
-         // Reset the head
-         this._head = 0;
-      }
-
-      return dequeuedItem;
-   }
+    return dequeuedItem;
+  }
 }
 
 //LINKEDLIST
 
 class Node {
-   constructor(data) {
-      this.data = data;
-      this.next = null;
-   }
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
 }
 
 class LinkedList {
-   constructor() {
-      this._length = 0;
-      this._head = null;
-   }
-   push(data) {
-      // Instantiate a new node with Data ..PS => A NODE IS JUST AN OBJECT THAT MAKES IT POSSIBLE TO CREATE REUSABLE OBJECTS
-      var node = new Node(data);
+  constructor() {
+    this._length = 0;
+    this._head = null;
+  }
+  push(data) {
+    // Instantiate a new node with Data ..PS => A NODE IS JUST AN OBJECT THAT MAKES IT POSSIBLE TO CREATE REUSABLE OBJECTS
+    var node = new Node(data);
 
-      //Check if we are inserting the first node in the list
-      if (this._head === null) {
-         this._head = node;
-      } else {
-         // Find the last node
-         var current = this._head;
-
-         while (current.next) {
-            current = current.next;
-            console.log(current);
-         }
-
-         current.next = node;
-      }
-
-      // Increment the length
-      this._length++;
-   }
-
-   // We follow the 0 based indexes just like Arrays
-   itemAt(index) {
-      // Ensure that the index is within bounds
-      if (index < 0 || index >= this._length) {
-         // Return Null when index is out of bounds
-         return null;
-      }
-
+    //Check if we are inserting the first node in the list
+    if (this._head === null) {
+      this._head = node;
+    } else {
+      // Find the last node
       var current = this._head;
+
+      while (current.next) {
+        current = current.next;
+        console.log(current);
+      }
+
+      current.next = node;
+    }
+
+    // Increment the length
+    this._length++;
+  }
+
+  // We follow the 0 based indexes just like Arrays
+  itemAt(index) {
+    // Ensure that the index is within bounds
+    if (index < 0 || index >= this._length) {
+      // Return Null when index is out of bounds
+      return null;
+    }
+
+    var current = this._head;
+    var counter = 0;
+
+    while (counter < index) {
+      current = current.next;
+      counter++;
+    }
+
+    return current.data;
+  }
+  // Returns Size of Current Linked List
+  size() {
+    return this._length;
+  }
+
+  //Remove an item from the linkedlist
+  remove(index) {
+    // Ensure that the index is within bounds
+    if (index < 0 || index >= this._length) {
+      return null;
+    }
+
+    var current = this._head;
+
+    if (index === 0) {
+      // Special case for removing the head node.
+      this._head = current.next;
+    } else {
+      // Track previous element
+      var previous = null;
       var counter = 0;
 
       while (counter < index) {
-         current = current.next;
-         counter++;
+        previous = current;
+        current = current.next;
+        counter++;
       }
 
-      return current.data;
-   }
-   // Returns Size of Current Linked List
-   size() {
-      return this._length;
-   }
+      // Set previous node's next to the node after the deleted node
+      previous.next = current.next;
+    }
 
-   //Remove an item from the linkedlist
-   remove(index) {
-      // Ensure that the index is within bounds
-      if (index < 0 || index >= this._length) {
-         return null;
-      }
+    this._length--;
+    return current.data;
+  }
+  //Search for an item in the list
+  search(index) {
+    if (index < 0 || index >= this._length) {
+      return null;
+    }
 
-      var current = this._head;
+    let current = this._head;
+    let counter = 0;
+    while (counter < index) {
+      current = current.next;
+      counter++;
+    }
 
-      if (index === 0) {
-         // Special case for removing the head node.
-         this._head = current.next;
-      } else {
-         // Track previous element
-         var previous = null;
-         var counter = 0;
-
-         while (counter < index) {
-            previous = current;
-            current = current.next;
-            counter++;
-         }
-
-         // Set previous node's next to the node after the deleted node
-         previous.next = current.next;
-      }
-
-      this._length--;
-      return current.data;
-   }
-   //Search for an item in the list
-   search(index) {
-      if (index < 0 || index >= this._length) {
-         return null;
-      }
-
-      let current = this._head;
-      let counter = 0;
-      while (counter < index) {
-         current = current.next;
-         counter++;
-      }
-
-      return current.data;
-   }
+    return current.data;
+  }
 }
 
 // Let's create a Linked List and add 3 nodes
@@ -779,71 +780,73 @@ list.push(200);
 list.push(300);
 
 for (i = 0; i < list.size(); i++) {
-   // console.log("Node value: " + list.itemAt(i));
+  // console.log("Node value: " + list.itemAt(i));
 }
 
 //BINARY SEARCH TREE
 
 class BSTNode {
-   constructor(data) {
-      this.data = data;
-      this.left = null;
-      this.right = null;
-   }
+  constructor(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
 }
 
 class BST {
-   constructor() {
-      this._node = null;
-   }
+  constructor() {
+    this._root = null;
+  }
 
-   insert(data) {
-      var node = new Node(data);
+  insert(data) {
+    //Instantiate a new BST Node
+    var node = new BSTNode(data);
 
-      // If it's the first node
-      if (this._root === null) {
-         this._root = node;
-         return;
+    // If it's the first node
+    if (this._root === null) {
+      this._root = node;
+      return;
+    }
+
+    var current = this._root;
+
+    while (current) {
+      if (data < current.data) {
+        if (current.left === null) {
+          current.left = node;
+          return;
+        }
+        current = current.left;
+      } else if (data > current.data) {
+        if (current.right === null) {
+          current.right = node;
+          return;
+        }
+        current = current.right;
+      } else {
+        // Duplicates are not supported
+        return;
+      }
+    }
+  }
+
+  //Lookup in BST
+  contains(data) {
+    var current = this._root;
+
+    while (current) {
+      if (data === current.data) {
+        return true;
       }
 
-      var current = this._root;
-
-      while (current) {
-         if (data < current.data) {
-            if (current.left === null) {
-               current.left = node;
-               return;
-            }
-            current = current.left;
-         } else if (data > current.data) {
-            if (current.right === null) {
-               current.right = node;
-               return;
-            }
-            current = current.right;
-         } else {
-            // Duplicates are not supported
-            return;
-         }
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
       }
-   }
-
-   contains(data) {
-      var current = this._root;
-
-      while (current) {
-         if (data === current.data) {
-            return true;
-         }
-
-         if (data < current.data) {
-            current = current.left;
-         } else {
-            current = current.right;
-         }
-      }
-      return false;
-   }
+    }
+    return false;
+  }
 }
 //Implementing Search in a BST
 //We've already described how lookup works in Binary Search Tree. Let's look
