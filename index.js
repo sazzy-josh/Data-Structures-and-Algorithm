@@ -1,6 +1,4 @@
-//!Stacks**
-
-// //?Check if a word is a palindrome
+//?Check if a word is a palindrome
 
 //word to check
 let word = "cocococo";
@@ -12,24 +10,22 @@ let rword = "";
 let stack;
 
 //loop through and then push each item into the stack
-// for(let i = 0 ; i < word.length ; i++){
-//     stack.push((word[i]))
-// }
+for (let i = 0; i < word.length; i++) {
+  stack.push(word[i]);
+}
 
-// for(let i = 0 ; i < word.length ; i++){
+for (let i = 0; i < word.length; i++) {
+  rword += stack.pop();
+  console.log(`${rword} -- ${stack}`);
+}
 
-//     rword += stack.pop()
-//    console.log(`${rword} -- ${stack}`)
-// }
-
-// if(word === rword){
-//    console.log(`${word} is a palindrome`)
-// }else{
-//    console.log(`${word} is not a palindrome`)
-// }
+if (word === rword) {
+  console.log(`${word} is a palindrome`);
+} else {
+  console.log(`${word} is not a palindrome`);
+}
 
 //?factorial
-
 function factorial(n) {
   let result = 1;
   for (let i = 2; i <= n; i++) {
@@ -47,7 +43,7 @@ function fibonacci(n) {
   for (let i = 2; i <= n; i++) {
     arr[i] = arr[i - 1] + arr[i - 2];
     console.log(
-      ` for n = ${[i]} ||  ${arr[i]} = ${arr[i - 1]} + ${arr[i - 2]} `
+      ` for n = ${[i]} ||  ${arr[i]} = ${arr[i - 1]} + ${arr[i - 2]} `,
     );
     console.log(arr);
     console.log("-----------------");
@@ -65,7 +61,7 @@ function checkPrime(n) {
     if (n % i === 0) {
       console.log(`${n} % ${i}`);
       console.log(
-        `${n} is a not Prime number because it is divisble without a remainder`
+        `${n} is a not Prime number because it is divisble without a remainder`,
       );
       console.log("-------------------------");
       return false;
@@ -405,7 +401,7 @@ function findCommonElement(arr1, arr2) {
         console.log(
           `common element exist at ${arr1[i]} at index ${[i]} and ${
             arr2[j]
-          } at index ${j}`
+          } at index ${j}`,
         );
         return true;
       }
@@ -470,23 +466,24 @@ function mergeSort(sortedArr1, sortedArr2) {
   return finalArray;
 }
 
+//This is not an optimal solution...Best is to use the divide and conquer approach..
+
 // console.log(mergeSort(sortedArray1 , sortedArray2))
 
 //understanding recursion
 
-// const values = [ 5 , 2 , 8, 5 ]
+const arrValues = [5, 2, 8, 5];
 
-// const countdown = (arr , n ) => {
-//    let acc = 0 ;
-//    if( n === arr.length - 1 ){
-//       return acc
-//    }
-//    else{
-//       acc = acc + arr[n]
-//       console.log("acc" , acc , arr[n])
-//    }
-//    return countdown(values , n - 1)
-// }
+const countdown = (arr, n) => {
+  let acc = 0;
+  if (n === arr.length - 1) {
+    return acc;
+  } else {
+    acc = acc + arr[n];
+    // console.log("acc" , acc , arr[n])
+  }
+  return countdown(values, n - 1);
+};
 
 // console.log(countdown(values , values.length ))
 
@@ -847,8 +844,76 @@ class BST {
     }
     return false;
   }
+
+  //TREE TRASVERSAL
+  //PRE-ORDER TRASVERSAL
+  //IN-ORDER TRASVERSAL
+  //POST-ORDER TRASVERSAL
+
+  /**
+   * PRE-ORDER TRASVERSAL
+   * In this case scenario,the node visits itself first
+   * Then visit the left subtrees
+   * Then visit the right subtrees
+   * N:B => The pre-order tree trasversals are implemented using rescursion
+   */
+
+  preOrder() {
+    let output = [];
+    function preOrderImpl(node) {
+      if (node === null) {
+        return;
+      }
+
+      //Visit the node itself
+      output.push(node.data);
+
+      //visit the left subtree
+      preOrderImpl(node.left);
+
+      //visit the right subtree
+      preOrderImpl(right.data);
+    }
+
+    // Call the internal function
+    // with Root as the starting point.
+    preOrderImpl(this._root);
+
+    return output;
+  }
+
+  //IN-ORDER IMPLEMENTATION
+  /**
+   * This usually access the node subtrees first
+   * Then visit the node itself
+   * Then visit the right subtree
+   */
+
+  inOrder() {
+    let output = [];
+
+    function Inorderimpl(node) {
+      if (node === null) return;
+    }
+
+    //visit the left substrees
+    Inorderimpl(node.left);
+
+    //visit the node itself
+    output.push(node.data);
+
+    //visit the right subtree
+    Inorderimpl(node.right);
+
+    // Call the internal function
+    // with Root as the starting point.
+    Inorderimpl(this._root);
+  }
+
+  /**
+   * POST ORDER IMPLEMENTATION
+   * First visit the left subtree of the node.
+   * Then visit the right subtree of the node.
+   * Then visit the node itself
+   */
 }
-//Implementing Search in a BST
-//We've already described how lookup works in Binary Search Tree. Let's look
-//at the code for the lookup method as well. It returns True if the key is found
-//and returns false otherwise.
