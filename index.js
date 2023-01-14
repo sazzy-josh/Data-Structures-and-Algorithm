@@ -3,26 +3,26 @@
 //word to check
 let word = "cocococo";
 
-//reverse word to check if word is a palindrome
-let rword = "";
-
 //stack is initially an  empty array
-let stack;
+let stack = [];
 
 //loop through and then push each item into the stack
 for (let i = 0; i < word.length; i++) {
   stack.push(word[i]);
 }
 
+//reverse word to check if word is a palindrome
+let rword = "";
+
 for (let i = 0; i < word.length; i++) {
   rword += stack.pop();
-  console.log(`${rword} -- ${stack}`);
+  // console.log(`${rword} -- ${stack}`);
 }
 
 if (word === rword) {
-  console.log(`${word} is a palindrome`);
+  return `${word} is a palindrome`;
 } else {
-  console.log(`${word} is not a palindrome`);
+  return `${word} is not a palindrome`;
 }
 
 //?factorial
@@ -143,7 +143,7 @@ const BinarySearch = (arr, target) => {
       console.log(` leftIndex = ${leftindex} `);
     }
   }
-  console.log(`couldnt find the value ${target}`);
+  console.log(`couldn't find the value ${target}`);
   return -1;
 };
 
@@ -178,16 +178,16 @@ function BubbleSort(arr) {
 
 function BubbleSorting(arr) {
   let swapped;
-  //run a do , while loops to run the array atleast once to see if it meets the condition ,whether it is sorted or not sorted
+  //run a do , while loops to run the array at least once to see if it meets the condition ,whether it is sorted or not sorted
   do {
     let swapped = false;
     for (let i = 0; i < arr.length - 1; i++) {
       if (arr[i] > arr[i + 1]) {
-        //create a temp variale to store value of arr[i]
+        //create a temp variable to store value of arr[i]
         let temp = arr[i];
         arr[i + 1] = arr[i];
         arr[i] = temp;
-        //notify the while loop that the array was swapped by setting ther value of swapped to true..
+        //notify the while loop that the array was swapped by setting their value of swapped to true..
         swapped = true;
       }
     }
@@ -199,7 +199,7 @@ function BubbleSorting(arr) {
 function test(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
     if (arr[i] > arr[i + 1]) {
-      //create a temp variale to store value of arr[i]
+      //create a temp variable to store value of arr[i]
       let temp = arr[i];
       arr[i] = arr[i + 1];
       arr[i + 1] = temp;
@@ -209,7 +209,7 @@ function test(arr) {
 }
 // console.log(test([2 , 15 , -1 , 9 , -4 , 0]))
 
-//reverse case for Bubble Sort, say we have an array [ 2, 3 , 0 , 5 ,-1], we expect an outout of [  ]
+//reverse case for Bubble Sort, say we have an array [ 2, 3 , 0 , 5 ,-1], we expect an output of [  ]
 
 function ReverseSorting(arr) {
   let swapped = false;
@@ -273,8 +273,8 @@ function InsertionSort2(nums) {
 /**
  * Quick sort- Pseudocode
  * Simple work by first picking a pivot element,which could be the first element of the arr ,median or the last index of the array .(in this approach we pick the last element)
- * then we trasverse the array and place the values less than the pivot element to the left of the pivot element and the values greater than the pivot element to the right
- * we continue to repeat this process until the lenth of the array is 1
+ * then we traverse the array and place the values less than the pivot element to the left of the pivot element and the values greater than the pivot element to the right
+ * we continue to repeat this process until the length of the array is 1
  * then we concatenate all the values of the left array , pivot element  and right array,Viola we have a sorted array in ascending order
  */
 
@@ -305,7 +305,7 @@ function QuickSort(arr) {
 //    [-1 , 2]     [ null ]  [ 8 ]      [ null ]
 
 //         [2]
-// [ -1 ]       [ null]    //base case arr.lenght now equal to 1,note that an array with a single element is a sorted array..
+// [ -1 ]       [ null]    //base case arr.length now equal to 1,note that an array with a single element is a sorted array..
 
 // [ -1 , 2 , 5]    [null]   [ 6 ]     [ 8 , 10 ] [ null]
 
@@ -360,7 +360,7 @@ const array = [
   },
 ];
 
-//Excercise
+//Exercise
 //Given the data above sort the array by age , name , date .
 //sort by name , age ,date in ascending order, descending order
 
@@ -532,7 +532,7 @@ function AIRTIME_TOPUP() {
       selectedOption === 4
     ) {
       if (confirm("Are you sure ?")) {
-        alert("Congrats!Your transaction was successfull");
+        alert("Congrats!Your transaction was successful");
       }
       return;
     } else {
@@ -574,9 +574,9 @@ let values = ["s", "cr", "t cod"];
 
 // UNDERSTANDING THE CONCEPT OF STACK IN JS
 /**
- * PUSH - BASICALLY IS TO INSERT INTO THE TO STACK,OR ADD A NEW ELEMENT ONTOP OF THE STACK
+ * PUSH - BASICALLY IS TO INSERT INTO THE TO STACK,OR ADD A NEW ELEMENT ON TOP OF THE STACK
  * POP - MEANS TO REMOVE THE LAST ELEMENT FROM A STACK
- * PEEK - MEANS TO GLANCE THROUGH THE LAST ELEMENT OF A STACK,THIS DOESNT REMOVE OR ADD TO THE STACK
+ * PEEK - MEANS TO GLANCE THROUGH THE LAST ELEMENT OF A STACK,THIS DOESN'T REMOVE OR ADD TO THE STACK
  */
 
 class Stack {
@@ -697,15 +697,15 @@ class LinkedList {
       current = current.next;
       counter++;
     }
-
     return current.data;
   }
+
   // Returns Size of Current Linked List
   size() {
     return this._length;
   }
 
-  //Remove an item from the linkedlist
+  //Remove an item from the _linklist
   remove(index) {
     // Ensure that the index is within bounds
     if (index < 0 || index >= this._length) {
@@ -845,17 +845,17 @@ class BST {
     return false;
   }
 
-  //TREE TRASVERSAL
-  //PRE-ORDER TRASVERSAL
-  //IN-ORDER TRASVERSAL
-  //POST-ORDER TRASVERSAL
+  //TREE TRAVERSAL
+  //PRE-ORDER TRAVERSAL
+  //IN-ORDER TRAVERSAL
+  //POST-ORDER TRAVERSAL
 
   /**
-   * PRE-ORDER TRASVERSAL
+   * PRE-ORDER TRAVERSAL
    * In this case scenario,the node visits itself first
    * Then visit the left subtrees
    * Then visit the right subtrees
-   * N:B => The pre-order tree trasversals are implemented using rescursion
+   * N:B => The pre-order tree traversals are implemented using recursion
    */
 
   preOrder() {
@@ -896,7 +896,7 @@ class BST {
       if (node === null) return;
     }
 
-    //visit the left substrees
+    //visit the left subtrees
     Inorderimpl(node.left);
 
     //visit the node itself
@@ -916,4 +916,87 @@ class BST {
    * Then visit the right subtree of the node.
    * Then visit the node itself
    */
+  PostOrder() {
+    let output = [];
+
+    function postOrderimpl(node) {
+      if (node === null) return;
+    }
+
+    //visit the left subtrees
+    postOrderimpl(node.left);
+
+    //visit the right subtree
+    postOrderimpl(node.right);
+
+    //visit the node itself
+    output.push(node.data);
+
+    // Call the internal function
+    // with Root as the starting point.
+    postOrderimpl(this._root);
+  }
 }
+
+//PRACTICE
+//Write a function that takes an array of characters and reverses the letters in place
+//N:B => An in-place algorithm mutates the object in reference and usually doesn't create a new copy of the object
+//An in-place algorithm usually have a space complexity of O(1)
+
+let arrChars = [22, 5, 6, 10, 30, 8];
+
+function reverseCharacters(arr) {
+  let leftIndex = 0;
+  let rightIndex = arr.length - 1;
+
+  while (leftIndex < rightIndex) {
+    let temp = arr[leftIndex];
+    arr[leftIndex] = arr[rightIndex];
+    arr[rightIndex] = temp;
+
+    leftIndex++;
+    rightIndex--;
+  }
+
+  return arr;
+}
+
+reverseCharacters(arrChars);
+
+const message = [
+  "c",
+  "a",
+  "k",
+  "e",
+  " ",
+  "p",
+  "o",
+  "u",
+  "n",
+  "d",
+  " ",
+  "s",
+  "t",
+  "e",
+  "a",
+  "l",
+];
+
+function reverseMessage(data) {
+  let a = data.join("").split(" ");
+  let leftIndex = 0;
+  let rightIndex = a.length - 1;
+  console.log("a:", a);
+
+  while (leftIndex < rightIndex) {
+    let temp = a[leftIndex];
+    a[leftIndex] = a[rightIndex];
+    a[rightIndex] = temp;
+    leftIndex++;
+    rightIndex--;
+  }
+
+  return a.join(" ");
+}
+
+console.log(reverseMessage(message));
