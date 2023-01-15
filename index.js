@@ -611,11 +611,71 @@ class Stack {
   }
 }
 
+//SETS
+//Are a collection of related members in which no member appears more than once
+
+class Set {
+  constructor() {
+    this._set = {};
+    this._size = 0;
+  }
+
+  //Add data to a set Object
+  addData(data) {
+    if (!this._set.hasOwnProperty(data)) {
+      this.set[data] = "true";
+      this._size++;
+    }
+  }
+
+  //Remove Data from a set
+  removeData(data) {
+    if (this._set.hasOwnProperty(data)) {
+      delete this.set[data];
+      this._size--;
+    }
+  }
+
+  //Union of a Set
+  /**
+   * Union of  a set is the combination of the properties of two set without repeating
+   * */
+  unionOfTwoSet(secondSet) {
+    var UnionSet = new Set();
+    for (var key in this._set) {
+      if (this.set.hasOwnProperty(key)) {
+        UnionSet.add(key);
+      }
+    }
+
+    for (var key in secondSet) {
+      if (!this.UnionSet.hasOwnProperty(key)) {
+        UnionSet.add(key);
+      }
+    }
+
+    return UnionSet;
+  }
+
+  //Intersect of two sets only selects the elements available in two sets
+  Intersect(secondSet) {
+    var Inter = new Set();
+
+    for (var key in this._set) {
+      if (this.secondSet.hasOwnProperty(key)) {
+        Inter.add(key);
+      }
+    }
+
+    return Inter;
+  }
+}
+
 /**
  * QUEUE IS A FIFO KIND OF DATA STRUCTURE
  * It's a linear collection where items are inserted at the end and are removed from the front.
  * Inserting into the queue is called Enqueue.
- * Extracting from the queue is called Deque
+ * Extracting from the queue is called Dequeue
  */
 
 class Queue {
