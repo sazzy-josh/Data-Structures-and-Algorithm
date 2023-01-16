@@ -1059,4 +1059,75 @@ function reverseMessage(data) {
   return a.join(" ");
 }
 
-console.log(reverseMessage(message));
+// console.log(reverseMessage(message));
+
+/**
+ * HASH TABLES ARE A MORE EFFICIENT WAY TO STORE KEY/VALUE PAIRS
+ *Hash Table consists of a buckets (slots) and a hashing function maps the keys
+  to slots.
+ *Hash function can have collisions. When there is a collision, there are
+  strategies to resolve to collision. 
+ *Two most common strategies for conflict resolution are called separate
+  chaining and open addressing.
+ */
+
+class HashTable {
+  constructor() {
+    this._bucket = [];
+    this._bucketSize = 23;
+    this._bucket.lengthSize = this._bucket;
+  }
+
+  //compute Hash function
+  computeHash(key) {
+    let total = 0;
+
+    for (var i = 0; i < key.length; i++) {
+      total += data.charCodeAt(i);
+    }
+
+    return total % this._bucketSize;
+  }
+
+  //add value to a Hash Table
+  putValue(key, value) {
+    var key = typeof key;
+
+    if (key !== "number" && key !== "string") {
+      throw "Not a valid data type";
+    }
+
+    var hash = this.computeHash(key);
+
+    //Check if there's a free memory allocation in the tables
+    if (this._bucket[hash] === "undefined") {
+      this._bucket[hash] = {};
+    }
+
+    var chain = this._bucket[hash];
+    if (chain.hasOwnProperty(key)) {
+      throw "Duplicate keys are now allowed";
+    }
+
+    chain[key] = value;
+  }
+
+  get(key) {
+    var type = typeof key;
+
+    if (type !== "string" && type !== "number") {
+      throw "Not a valid data type";
+    }
+
+    var hash = this.computeHash(key);
+
+    if (this._bucket[hash] === undefined) {
+      return undefined;
+    }
+
+    var chain = this._bucket[hash];
+    if (chain.hasOwnProperty(key)) {
+      return chain[key];
+    }
+  }
+}
